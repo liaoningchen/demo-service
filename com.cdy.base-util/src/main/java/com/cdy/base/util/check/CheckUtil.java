@@ -16,13 +16,13 @@ public class CheckUtil {
     public static <T> CheckUtil.CheckHandler check(final T target, String desc, Ruler<T> ... rulers){
         return new CheckUtil.CheckHandler().check(target,desc,rulers);
     }
-    public static class CheckHandler {
-        public CheckHandler() {
+    private static class CheckHandler {
+        private CheckHandler() {
         }
-        public <T> CheckUtil.CheckHandler check(final T target, Ruler<T>... rulers){
+        private <T> CheckUtil.CheckHandler check(final T target, Ruler<T>... rulers){
             return this.check(target,"",rulers);
         }
-        public <T> CheckUtil.CheckHandler check(final T target, String desc, Ruler<T> ... rulers){
+        private <T> CheckUtil.CheckHandler check(final T target, String desc, Ruler<T> ... rulers){
             try{
                 Arrays.stream(rulers).forEach((ruler)->{
                     ruler.check(target);
